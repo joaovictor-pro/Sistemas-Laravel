@@ -7,27 +7,27 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Executar as migrações.
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('livros', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->required();
-            $table->string('author')->required();
-            $table->integer('publication_year')->required();
-            $table->string('genre')->required();
-            $table->integer('pages')->required();
+            $table->string('titulo')->required();
+            $table->string('autor')->required();
+            $table->integer('ano_publicacao')->required();
+            $table->string('genero')->required();
+            $table->integer('paginas')->required();
             $table->enum('status', ['Disponível', 'Emprestado', 'Reservado'])->default('Disponível');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverter as migrações.
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('livros');
     }
 };
